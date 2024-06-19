@@ -6,7 +6,7 @@ class Anak_model extends CI_Model
     // MULAI CRUD DATA ANAK
     public function getDataAnak()
     {
-        $query = "SELECT anak.*, ibu.nama_ibu
+        $query = "SELECT anak.*, ibu.nama_ibu,ibu.nama_suami
                     From anak JOIN ibu
                     ON anak.ibu_id = ibu.id_ibu
                     ";

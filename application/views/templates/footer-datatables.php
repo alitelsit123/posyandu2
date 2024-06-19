@@ -16,6 +16,12 @@
 <script src="<?= base_url('vendors/jquery/dist/jquery.min.js') ?>"></script>
 <!-- Bootstrap -->
 <script src="<?= base_url('vendors/bootstrap/dist/js/bootstrap.bundle.min.js') ?>"></script>
+<script>
+	$(document).ready(function() {
+		// new DataTable('.datatable')
+		$('.datatable').DataTable()
+	})
+</script>
 <!-- FastClick -->
 <script src="<?= base_url('vendors/fastclick/lib/fastclick.js') ?>"></script>
 <!-- NProgress -->

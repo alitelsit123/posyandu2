@@ -1,8 +1,8 @@
 <?php
 if (!function_exists('bulan')) {
-    function bulan()
+    function bulan($tgl = null)
     {
-        $bulan = Date('n');
+        $bulan = $tgl ? ltrim($tgl, '0'): Date('n');
         switch ($bulan) {
             case 1:
                 $bulan = "Januari";

@@ -9,6 +9,7 @@ class Penimbangan_Anak extends CI_Controller
         $this->load->model('Mpasi_model');
 
         $this->load->model('Penimbangan_model');
+        $this->load->model('Antropometri_model');
     }
 
     // MULAI MENAMPILKAN
@@ -40,6 +41,7 @@ class Penimbangan_Anak extends CI_Controller
         $id_anak = $this->input->post('id_anak');
         $anak = $this->Mpasi_model->getDataAnakDetail2($id_anak);
         $usia = $this->input->post('usia');
+        $currentDate = new DateTime();
 
 
         $calorieIntake = 0; // Initialize calorie intake
@@ -221,6 +223,7 @@ class Penimbangan_Anak extends CI_Controller
                 'ibu_id' => $this->input->post('ibu_id'),
                 'usia' => $this->input->post('usia'),
                 'deteksi' => $deteksiValues[0],
+                'tgl'=>$currentDate,
                 'tb' => $this->input->post('tb'),
                 'bb' => $this->input->post('bb'),
                 'tgl_skrng' => $this->input->post('tgl_skrng'),

@@ -18,12 +18,19 @@ class Anak extends CI_Controller
 
         $data['anak'] = $this->Anak_model->getDataAnak();
         $data['ibu'] = $this->Ibu_model->getDataIbu();
+        $user_level = $this->session->userdata('level_id');
+        if($user_level !=1){
+            echo "Anda tidak memiliki izin untuk mengakses halaman ini.";
+            return;
+        }else{
+            $this->load->view('templates/header-datatables', $data);
+            $this->load->view('templates/sidebar');
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('anak/index', $data);
+            $this->load->view('templates/footer-datatables');
+        }
 
-        $this->load->view('templates/header-datatables', $data);
-        $this->load->view('templates/sidebar');
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('anak/index', $data);
-        $this->load->view('templates/footer-datatables');
+
     }
     // SELESAI INDEX DATA ANAK
 

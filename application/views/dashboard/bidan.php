@@ -19,9 +19,9 @@
         </div>
         <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <div class="tile-stats">
-                <div class="icon"><i class="fa fa-user"></i></div>
-                <div class="count"><?= $count_bidan; ?></div>
-                <h3>Data Bidan</h3>
+                <div class="icon"><i class="fa fa-users"></i></div>
+                <div class="count"><?= $count_petugas; ?></div>
+                <h3>Data Petugas</h3>
                 <p></p>
             </div>
         </div>
@@ -52,4 +52,51 @@
             </div>
         </div>
     </div>
+		<!-- <div class="col-12">
+			<div class="card">
+				<div class="card-header">
+					Grafik Data Anak
+				</div>
+				<div class="card-body">
+					<div>
+						<select name="" id="" class="form-control">
+							<option value="" selected>Semua</option>
+							<?php foreach($this->Anak_model->getDataAnak() as $row): ?>
+							<option value="<?= $row["id_anak"] ?>"><?= $row["nama_anak"] ?></option>
+							<?php endforeach; ?>
+						</select>
+					</div>
+					<canvas id="myChartSingle" style="width:100%;" class="mt-3"></canvas>
+				</div>
+			</div>
+		</div> -->
 </div>
+
+<script>
+	$(document).ready(function() {
+		const xValues = [100,200,300,400,500,600,700,800,900,1000];
+
+		new Chart("myChartSingle", {
+			type: "line",
+			data: {
+				labels: xValues,
+				datasets: [{ 
+					data: [860,1140,1060,1060,1070,1110,1330,2210,7830,2478],
+					borderColor: "red",
+					fill: false
+				}, { 
+					data: [1600,1700,1700,1900,2000,2700,4000,5000,6000,7000],
+					borderColor: "green",
+					fill: false
+				}, { 
+					data: [300,700,2000,5000,6000,4000,2000,1000,200,100],
+					borderColor: "blue",
+					fill: false
+				}]
+			},
+			options: {
+				legend: {display: false}
+			}
+		});
+	})
+</script>

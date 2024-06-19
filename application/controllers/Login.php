@@ -46,8 +46,17 @@ class Login extends CI_Controller
 						$this->db->insert('login_attempts', $data);
 
 						$this->session->set_flashdata('success', 'Selamat Datang, Petugas!');
+						redirect('dashboard/admin');
+					} elseif($user['level_id'] == 2){
+						date_default_timezone_set('Asia/Jakarta');
+						$tanggal = date('y-m-d h:i:s');
+
+						$data = array('user_id' => $user['id_users'], 'date_time' => $tanggal);
+						$this->db->insert('login_attempts', $data);
+
+						$this->session->set_flashdata('success', 'Selamat Datang, Bidan!');
 						redirect('dashboard/petugas');
-					} else {
+					}elseif($user['level_id'] == 3){
 						date_default_timezone_set('Asia/Jakarta');
 						$tanggal = date('y-m-d h:i:s');
 
@@ -56,6 +65,8 @@ class Login extends CI_Controller
 
 						$this->session->set_flashdata('success', 'Selamat Datang, Bidan!');
 						redirect('dashboard/bidan');
+					}else{
+
 					}
 				} else {
 					$this->session->set_flashdata('msg-info', 'Password yang anda masukkan salah');

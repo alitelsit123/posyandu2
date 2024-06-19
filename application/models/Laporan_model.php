@@ -24,8 +24,10 @@ class Laporan_model extends CI_Model
             ->join('imunisasi q', 'q.anak_id = h.anak_id')
             ->join('ibu p', 'p.id_ibu = h.ibu_id')
             ->join('anak i', 'i.id_anak = h.anak_id');
-        if (count($where) > 0)
-            $this->db->where($where);
+        	if (count($where) > 0) {
+						$this->db->where($where);
+					}
+            
 
         $this->db->where('`h.tgl_skrng = q.tgl_skrng`');
         $this->db->order_by('h.tgl_skrng asc');
@@ -45,10 +47,12 @@ class Laporan_model extends CI_Model
             ->join('imunisasi q', 'q.anak_id = h.anak_id')
             ->join('ibu p', 'p.id_ibu = h.ibu_id')
             ->join('anak i', 'i.id_anak = h.anak_id');
-        if (count($where) > 0)
-            $this->db->where($where);
+        if (count($where) > 0) {
+					$this->db->where($where);
+				}
+            
 
-        $this->db->group_by('h.anak_id');
+        // $this->db->group_by('h.anak_id');
         $this->db->order_by('h.tgl_skrng asc');
         // var_dump($res->result());
         // die;

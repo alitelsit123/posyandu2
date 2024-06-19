@@ -31,6 +31,12 @@
 
   <!-- Custom Theme Style -->
   <link href="<?= base_url('build/css/custom.min.css') ?>" rel="stylesheet">
+
+	<!-- jQuery -->
+	<script src="<?= base_url('vendors/jquery/dist/jquery.min.js') ?>"></script>
+	<!-- Bootstrap -->
+	<script src="<?= base_url('vendors/bootstrap/dist/js/bootstrap.bundle.min.js') ?>"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 </head>
 
 <body class="nav-md">

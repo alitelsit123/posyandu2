@@ -1,7 +1,12 @@
 <div class="right_col" role="main">
     <div class="page-title">
-        <div class="title_left">
-            <h3>Laporan Anak</h3>
+        <div class="title_left w-100">
+            <h3 class="d-flex align-items-center justify-content-between">
+							<span>Laporan Anak</span>
+							<form action="<?= base_url('laporan_anak/cetak_laporan_all') ?>" method="get">
+								<button class="btn btn-primary" type="submit">Print Semua</button>
+							</form>
+						</h3>
         </div>
     </div>
     <div class="clearfix"></div>
@@ -123,4 +128,5 @@
         </div>
     </div>
 </div>
+
 </div>
