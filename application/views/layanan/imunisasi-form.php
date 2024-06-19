@@ -94,16 +94,56 @@
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="imun">Imunisasi
                             </label>
                             <div class="col-md-6 col-sm-6">
-                                <input type=text id="imun" name="imun" class="form-control">
+																<select name="imun" id="" class="form-control">
+																	<option value="">-- Pilih Imunisasi --</option>
+																	<option value="BCG (Bacillus Calmette-Guérin):">BCG (Bacillus Calmette-Guérin):</option>
+																	<option value="Hepatitis B">Hepatitis B</option>
+																	<option value="DPT (Difteri, Pertusis, Tetanus)">DPT (Difteri, Pertusis, Tetanus)</option>
+																	<option value="Polio">Polio</option>
+																	<option value="Hib (Haemophilus influenzae tipe b)">Hib (Haemophilus influenzae tipe b)</option>
+																	<option value="PCV (Pneumococcal Conjugate Vaccine)">PCV (Pneumococcal Conjugate Vaccine)</option>
+																	<option value="Rotavirus">Rotavirus</option>
+																	<option value="MR/MMR (Measles, Rubella / Measles, Mumps, Rubella)">MR/MMR (Measles, Rubella / Measles, Mumps, Rubella)</option>
+																	<option value="Varicella">Varicella</option>
+																	<option value="-">Lain lain</option>
+																</select>
+                                <input type=text id="" name="imun_custom" class="form-control" style="display:none;" placeholder="Input Manual" />
+																<script>
+																	$(document).ready(function() {
+																		$('select[name="imun"]').change(function() {
+																			if ($(this).val() == '-') {
+																				$('input[name="imun_custom"]').show()
+																			} else {
+																				$('input[name="imun_custom"]').hide()
+																			}
+																		});
+																	})
+																</script>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align">Vitamin A</label>
+                            <label class="col-form-label col-md-3 col-sm-3 label-align">Jenis Vitamin</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <p style="margin-top: 5px !important;margin-bottom: -2rem !important;">
-                                    <input type="radio" class="flat" name="vit[]" id="vita-merah" value="Merah" checked="" /> Merah
-                                    <input type="radio" class="flat" name="vit[]" id="vita-biru" value="Biru" /> Biru
-                                </p>
+																<select name="vit[]" id="vit-select" class="form-control">
+																		<option value="Vitamin A">Vitamin A</option>
+																		<option value="Vitamin C">Vitamin C</option>
+																		<option value="Vitamin D">Vitamin D</option>
+																		<option value="Zat Besi">Zat Besi</option>
+																		<option value="Yodium">Yodium</option>
+																		<option value="-">Lain lain</option>
+																</select>
+                                <input type=text id="" name="vit_custom" class="form-control" style="display:none;" placeholder="Input Manual" />
+																<script>
+																	$(document).ready(function() {
+																		$('#vit-select').change(function() {
+																			if ($('#vit-select').val() == '-') {
+																					$('input[name="vit_custom"]').show();
+																			} else {
+																					$('input[name="vit_custom"]').hide();
+																			}
+																		});
+																	})
+																</script>
                             </div>
                         </div>
                         <div class="form-group row">

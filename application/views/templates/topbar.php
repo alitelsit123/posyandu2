@@ -11,7 +11,9 @@
                         <img src="<?= base_url('build/img/profile/') . $user['image']; ?>" alt=""><?= $user['name']; ?>
                     </a>
                     <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
+												<?php if($user["level_id"] == 1): ?>
                         <a class="dropdown-item" href="<?= base_url('user/tambahUser') ?>"> Tambah User</a>
+												<?php endif; ?>
                         <a class="dropdown-item" href="<?= base_url('user/profile') ?>"> Profile</a>
                         <a class="dropdown-item tbl-logout" href="<?= base_url('login/logout') ?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                     </div>

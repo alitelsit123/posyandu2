@@ -21,4 +21,8 @@ class Imunisasi_model extends CI_Model
         $this->db->insert($this->table, $data);
     }
     // SELESAI GET, ADD DATA ANAK IBU
+		public function update($table, $data, $where) {
+			$this->db->update($table, $data, $where);
+			return $this->db->affected_rows();
+		}
 }

@@ -31,39 +31,39 @@
             <div class="menu_section">
                 <h3>Master Data</h3>
                 <ul class="nav side-menu">
-                    <?php if ($user['level_id'] == 1) : ?>
+                    <?php if ($user['level_id'] == 1 || $user['level_id'] == 2) : ?>
                         <!-- Hanya tampilkan tautan Data Anak jika pengguna adalah admin -->
                         <li><a href="<?= base_url('ibu') ?>"><i class="fa fa-female"></i> Data Ibu</a>
                         </li> <?php endif; ?>
 
                 </ul>
                 <ul class="nav side-menu">
-                    <?php if ($user['level_id'] == 1) : ?>
+                    <?php if ($user['level_id'] == 1 || $user['level_id'] == 2) : ?>
                         <!-- Hanya tampilkan tautan Data Anak jika pengguna adalah admin -->
                         <li><a href="<?= base_url('anak') ?>"><i class="fa fa-child"></i> Data Anak</a></li>
                     <?php endif; ?>
                 </ul>
                 <ul class="nav side-menu">
-                    <?php if ($user['level_id'] == 1) : ?>
+                    <?php if ($user['level_id'] == 1 || $user['level_id'] == 2) : ?>
                         <!-- Hanya tampilkan tautan Data Anak jika pengguna adalah admin -->
                         <li><a href="<?= base_url('petugas') ?>"><i class="fa fa-users"></i> Data Petugas</a></li>
                     <?php endif; ?>
 
                 </ul>
                 <ul class="nav side-menu">
-                    <?php if ($user['level_id'] == 1) : ?>
+                    <?php if ($user['level_id'] == 1 || $user['level_id'] == 2) : ?>
                         <li><a href="<?= base_url('bidan') ?>"><i class="fa fa-users"></i> Data Bidan</a></li>
                     <?php endif; ?>
                 </ul>
                 <ul class="nav side-menu">
-                    <?php if ($user['level_id'] == 1 || $user['level_id'] == 2) : ?>
+                    <?php if ($user['level_id'] == 1 || $user['level_id'] == 2 || $user['level_id'] == 3) : ?>
                         <li><a href="<?= base_url('mpasi') ?>"><i class="fa fa-list"></i> Data MPASI</a>
                         </li>
                     <?php endif; ?>
 
                 </ul>
 								<ul class="nav side-menu">
-                    <?php if ($user['level_id'] == 1) : ?>
+                    <?php if ($user['level_id'] == 1 || $user['level_id'] == 2 || $user['level_id'] == 3) : ?>
                         <li><a href="<?= base_url('antropometri') ?>"><i class="fa fa-list"></i> Data Antropometri</a></li>
                     <?php endif; ?>
                 </ul>
@@ -79,28 +79,28 @@
                 </ul>
 
                 <ul class="nav side-menu">
-                    <?php if ($user['level_id'] == 3 || $user['level_id'] == 2) : ?>
+                    <?php if ($user['level_id'] == 1 || $user['level_id'] == 3 || $user['level_id'] == 2) : ?>
                         <li><a href="<?= base_url('penimbangan_anak/index') ?>"><i class="fa fa-file-text"></i> Penimbangan Anak</a>
                         </li>
                     <?php endif; ?>
                 </ul>
 
                 <ul class="nav side-menu">
-                    <?php if ($user['level_id'] == 3 || $user['level_id'] == 2) : ?>
+                    <?php if ($user['level_id'] == 1 || $user['level_id'] == 3 || $user['level_id'] == 2) : ?>
                         <li><a href="<?= base_url('penimbangan_anak/data_penimbangan') ?>"><i class="fa fa-list"></i> Data Penimbangan</a>
                         </li>
                     <?php endif; ?>
 
                 </ul>
                 <ul class="nav side-menu">
-                    <?php if ($user['level_id'] == 3 || $user['level_id'] == 2) : ?>
+                    <?php if ($user['level_id'] == 1 || $user['level_id'] == 3 || $user['level_id'] == 2) : ?>
                         <li><a href="<?= base_url('imunisasi_anak/index') ?>"><i class="fa fa-plus-square"></i> Imunisasi Anak</a>
                         </li>
                     <?php endif; ?>
 
                 </ul>
                 <ul class="nav side-menu">
-                    <?php if ($user['level_id'] == 3 && $user['level_id'] == 2) : ?>
+                    <?php if ($user['level_id'] == 1 || $user['level_id'] == 3 && $user['level_id'] == 2) : ?>
                         <li><a href="<?= base_url('imunisasi_anak/data_imunisasi') ?>"><i class="fa fa-list"></i> Data Imunisasi</a>
                         </li>
                     <?php endif; ?>

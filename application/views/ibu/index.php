@@ -12,10 +12,12 @@
     <div class="row">
         <div class="col-md-12 col-sm-12 ">
             <div class="x_panel">
-                <div class="x_title">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addDataIbuModal">Tambah Data Ibu</button>
-                    <div class="clearfix"></div>
-                </div>
+									<div class="x_title">
+											<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addDataIbuModal">Tambah Data Ibu</button>
+											<div class="clearfix"></div>
+									</div>
+                
+
                 <div class="x_content">
                     <div class="row">
                         <div class="col-sm-12">

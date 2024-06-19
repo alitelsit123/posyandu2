@@ -10,6 +10,7 @@ class Laporan_Anak extends CI_Controller
         $this->load->model('Laporan_model');
         $this->load->model('Antropometri_model');
         $this->load->model('Anak_model');
+        $this->load->model('Penimbangan_model');
 				
     }
 
@@ -216,15 +217,13 @@ class Laporan_Anak extends CI_Controller
             $filter = array();
 
             $filter['h.anak_id'] = $idanak;
-            $filter['p.id_ibu'] = $idibu;
-            $filter['p.nama_suami'] = $namaayah;
-            $filter['i.tgl_lahir'] = $tgllahir;
+            // $filter['p.id_ibu'] = $idibu;
+            // $filter['p.nama_suami'] = $namaayah;
+            // $filter['i.tgl_lahir'] = $tgllahir;
 
             $dt = $this->Laporan_model->get($filter);
             $dtId = $this->Laporan_model->getId($filter);
             // var_dump($dt);
-            // die;
-
             $mpdf = new \Mpdf\Mpdf();
             // $watermark = base_url('assets/images/icon.png');
             // $logo = base_url('build/img/icon-posyandu.png');
@@ -245,19 +244,19 @@ class Laporan_Anak extends CI_Controller
             $html = $html . "<h3>DATA ANAK</h3>";
             $html = $html . "<table>";
             $html = $html . "<tr>";
-						$html = $html . "<td style='width:150px'>NIK</td><td>:</td><td>" . $dtId[0]->nik_anak . "</td>";
+						$html = $html . "<td style='width:150px'>NIK</td><td>:</td><td>" . $dt[0]->nik_anak . "</td>";
 						$html = $html . "</tr>";
 						$html = $html . "<tr>";
-						$html = $html . "<td style='width:150px'>Nama Anak</td><td>:</td><td>" . $dtId[0]->nama_anak . "</td>";
+						$html = $html . "<td style='width:150px'>Nama Anak</td><td>:</td><td>" . $dt[0]->nama_anak . "</td>";
 						$html = $html . "</tr>";
 						$html = $html . "<tr>";
-						$html = $html . "<td style='width:150px'>Tanggal Lahir</td><td>:</td><td>" . date_format(date_create($dtId[0]->tgl_lahir), "j F Y") . "</td>";
+						$html = $html . "<td style='width:150px'>Tanggal Lahir</td><td>:</td><td>" . date_format(date_create($dt[0]->tgl_lahir), "j F Y") . "</td>";
 						$html = $html . "</tr>";
 						$html = $html . "<tr>";
-						$html = $html . "<td style='width:150px'>Nama Ayah</td><td>:</td><td>" . $dtId[0]->nama_suami . "</td>";
+						$html = $html . "<td style='width:150px'>Nama Ayah</td><td>:</td><td>" . $dt[0]->nama_suami . "</td>";
 						$html = $html . "</tr>";
 						$html = $html . "<tr>";
-						$html = $html . "<td style='width:150px'>Nama Ibu</td><td>:</td><td>" . $dtId[0]->nama_ibu . "</td>";
+						$html = $html . "<td style='width:150px'>Nama Ibu</td><td>:</td><td>" . $dt[0]->nama_ibu . "</td>";
 						$html = $html . "</tr>";
             $html = $html . "</table>";
             //Selesai Data Anak
@@ -278,10 +277,12 @@ class Laporan_Anak extends CI_Controller
             $html = $html . "<th>BB/U</th>";
             $html = $html . "<th>PB/U</th>";
             $html = $html . "<th>BB/PB</th>";
+						$html = $html . "<th>Kalori MPSI</th>";
+						$html = $html . "<th>Keterangan MPSI</th>";
             $html = $html . "</tr>";
             $html = $html . "</thead>";
             $html = $html . "<tbody>";
-            foreach ($dt as $rows) {
+            foreach ($dtId as $rows) {
 								$bbu = '-';
 								$bbuText = '-';
 								if ($rows->usia >= 0 && $rows->usia <= 24) {
@@ -345,11 +346,14 @@ class Laporan_Anak extends CI_Controller
 										$bbpbText = '<span class="badge badge-danger">Gemuk</span>';
 									}
 								}
+								$rmpasi = $this->Penimbangan_model->recommendMPSIById($rows->id_penimbangan)[0] ?? [];
                 $html = $html . "<tr>";
                 $html = $html . "<td align='center'>" . date_format(date_create($rows->tgl_skrng), "j F Y") . "</td><td align='center'>" . $rows->usia . ' bulan' . "</td><td align='center'>" . $rows->bb . ' kg' . "</td><td align='center'>" . $rows->tb . ' cm' . "</td><td align='center'>" . $rows->deteksi . "</td><td align='center'>" . $rows->imunisasi . "</td><td align='center'>" . $rows->vit_a . "</td><td align='center'>" . $rows->ket . "</td>".
 								"<td>".$bbuText."</td>".
 								"<td>".$pbuText."</td>".
-								"<td>".$bbpbText."</td>";
+								"<td>".$bbpbText."</td>".
+								"<td>".($rmpasi["kalori"] ?? '')."</td>".
+								"<td>".($rmpasi["keterangan"] ?? '')."</td>";
                 $html = $html . "</tr>";
             }
             $html = $html . "</tbody>";

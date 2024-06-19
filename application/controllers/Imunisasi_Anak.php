@@ -8,6 +8,7 @@ class Imunisasi_Anak extends CI_Controller
         parent::__construct();
 
         $this->load->model('Imunisasi_model');
+        $this->load->model('Anak_model');
     }
 
     // MULAI MENAMPILKAN
@@ -77,8 +78,8 @@ class Imunisasi_Anak extends CI_Controller
                 'ibu_id' => $this->input->post('ibu_id'),
                 'tgl_skrng' => $this->input->post('tgl_skrng'),
                 'usia' => $this->input->post('usia'),
-                'imunisasi' => $this->input->post('imun'),
-                'vit_a' => $vitValues[0],
+                'imunisasi' => $this->input->post('imun') != '-' ? $this->input->post('imun'): $this->input->post('imun_custom'),
+                'vit_a' => $vitValues[0] != '-' ? $vitValues[0]: $this->input->post('vit_custom'),
                 'ket' => $this->input->post('keterangan'),
                 'created_by' => $user['id_users'],
             )
@@ -121,4 +122,23 @@ class Imunisasi_Anak extends CI_Controller
         redirect('imunisasi_anak/imunisasi');
     }
     // SELESAI TAMBAH DATA
+		public function update_method() {
+			// Load the model
+			$this->load->model('Imunisasi_model');
+
+			// Get the data from the form
+			$id_imunisasi = $this->input->post('id_imunisasi');
+			$data = array(
+					'usia' => $this->input->post('usia'),
+					'imunisasi' => $this->input->post('imunisasi') != '-' ? $this->input->post('imunisasi'): $this->input->post('imun_custom'),
+					'vit_a' => $this->input->post('vit_a') != '-' ? $this->input->post('vit_a'): $this->input->post('vit_custom'),
+					'ket' => $this->input->post('ket')
+			);
+
+			// Update the data in the database
+			$this->Imunisasi_model->update('imunisasi', $data, array('id_imunisasi' => $id_imunisasi));
+
+			// Redirect back to the original page
+			redirect('imunisasi_anak/data_imunisasi');
+		}
 }

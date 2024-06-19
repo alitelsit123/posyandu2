@@ -101,7 +101,7 @@
                             </label>
                         </div>
                         <div class="form-group row">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="tb">Tinggi Badan [TB]
+                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="tb">Panjang Badan [PB]
                             </label>
                             <div class="col-md-6 col-sm-6">
                                 <input type=number step=any id="tb" name="tb" class="form-control">

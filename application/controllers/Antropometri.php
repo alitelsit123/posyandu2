@@ -24,16 +24,11 @@ class Antropometri extends CI_Controller
         $data['antropometri_umur'] = $this->Antropometri_model->getDataAntropometriU();
         $data['antropometri_pb'] = $this->Antropometri_model->getDataAntropometriPB();
 
-        if($user_level !=1){
-            echo "Anda tidak memiliki izin untuk mengakses halaman ini.";
-            return;
-        }else{
-            $this->load->view('templates/header-datatables', $data);
-            $this->load->view('templates/sidebar');
-            $this->load->view('templates/topbar', $data);
-            $this->load->view('antropometri/index', $data);
-            $this->load->view('templates/footer-datatables');
-        }
+        $this->load->view('templates/header-datatables', $data);
+				$this->load->view('templates/sidebar');
+				$this->load->view('templates/topbar', $data);
+				$this->load->view('antropometri/index', $data);
+				$this->load->view('templates/footer-datatables');
 
 
     }

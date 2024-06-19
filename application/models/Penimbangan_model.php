@@ -24,7 +24,6 @@ class Penimbangan_model extends CI_Model
 										JOIN anak
                     ON penimbangan.anak_id = anak.id_anak
 										where YEAR(tgl_skrng)=".($year ? $year:date('Y'))." ".($anakId ? 'and anak_id='.$anakId: '').' group by anak.id_anak';
-				var_dump($query);
         return $this->db->query($query)->result_array();
     }
 
@@ -42,7 +41,15 @@ class Penimbangan_model extends CI_Model
 
     function add($data)
     {
-        $this->db->insert($this->table, $data);
+			$this->db->insert($this->table, $data);
+			return $this->db->insert_id();
     }
     // SELESAI GET, ADD DATA ANAK IBU
+		public function recommendMPSIById($penimbanganId = null)
+    {
+        $query = "SELECT *
+                    From rekomendasi_mpasi 	
+									".($penimbanganId ? "where id_penimbangan=".$penimbanganId:'');
+        return $this->db->query($query)->result_array();
+    }
 }

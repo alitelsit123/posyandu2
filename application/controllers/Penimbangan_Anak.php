@@ -51,162 +51,167 @@ class Penimbangan_Anak extends CI_Controller
 
 
         // Menghitung kalori berdasarkan usia anak
-        if ($usia >= 6 && $usia <= 8) {
+        try {
+					if ($usia >= 6 && $usia <= 8) {
 
-            // Pilihan menu untuk usia 6-8 bulan
-            switch ($usia) {
-                case 6:
-                    $mpasi = $this->db->get_where('mpasi', ['id_mpasi' => $usia - 5])->row_array();
-                    $id_mpasi = $mpasi['id_mpasi'];
-                    $kode = $mpasi['kode'];
-                    $menu = $mpasi['keterangan'];
-                    break;
+							// Pilihan menu untuk usia 6-8 bulan
+							switch ($usia) {
+									case 6:
+											$mpasi = $this->db->get_where('mpasi', ['id_mpasi' => $usia - 5])->row_array();
+											$id_mpasi = $mpasi['id_mpasi'];
+											$kode = ($mpasi['kode'] ?? '');
+											$menu = ($mpasi['keterangan'] ?? '');
+											break;
 
-                case 7:
-                    $mpasi = $this->db->get_where('mpasi', ['id_mpasi' => $usia - 5])->row_array();
-                    $id_mpasi = $mpasi['id_mpasi'];
-                    $kode = $mpasi['kode'];
-                    $menu = $mpasi['keterangan'];
-                    break;
+									case 7:
+											$mpasi = $this->db->get_where('mpasi', ['id_mpasi' => $usia - 5])->row_array();
+											$id_mpasi = ($mpasi['id_mpasi'] ?? '');
+											$kode = ($mpasi['kode'] ?? '');
+											$menu = ($mpasi['keterangan'] ?? '');
+											break;
 
-                case 8:
-                    $mpasi = $this->db->get_where('mpasi', ['id_mpasi' => $usia - 5])->row_array();
-                    $id_mpasi = $mpasi['id_mpasi'];
-                    $kode = $mpasi['kode'];
-                    $menu = $mpasi['keterangan'];
-                    break;
+									case 8:
+											$mpasi = $this->db->get_where('mpasi', ['id_mpasi' => $usia - 5])->row_array();
+											$id_mpasi = ($mpasi['id_mpasi'] ?? '');
+											$kode = ($mpasi['kode'] ?? '');
+											$menu = ($mpasi['keterangan'] ?? '');
+											break;
 
-                default:
-                    $menu = "Pilihan menu tidak tersedia";
-            }
-            $calorieIntake = 200; // Kalori untuk usia 6-8 bulan
+									default:
+											$menu = "Pilihan menu tidak tersedia";
+							}
+							$calorieIntake = 200; // Kalori untuk usia 6-8 bulan
 
-        } elseif ($usia >= 9 && $usia <= 11) {
-            // Pilihan menu untuk usia 9-11 bulan
-            switch ($usia) {
-                case 9:
-                    $mpasi = $this->db->get_where('mpasi', ['id_mpasi' => $usia - 5])->row_array();
-                    $id_mpasi = $mpasi['id_mpasi'];
-                    $kode = $mpasi['kode'];
-                    $menu = $mpasi['keterangan'];
-                    break;
+					} elseif ($usia >= 9 && $usia <= 11) {
+							// Pilihan menu untuk usia 9-11 bulan
+							switch ($usia) {
+									case 9:
+											$mpasi = $this->db->get_where('mpasi', ['id_mpasi' => $usia - 5])->row_array();
+											$id_mpasi = ($mpasi['id_mpasi'] ?? '');
+											$kode = ($mpasi['kode'] ?? '');
+											$menu = ($mpasi['keterangan'] ?? '');
+											break;
 
-                case 10:
-                    $mpasi = $this->db->get_where('mpasi', ['id_mpasi' => $usia - 5])->row_array();
-                    $id_mpasi = $mpasi['id_mpasi'];
-                    $kode = $mpasi['kode'];
-                    $menu = $mpasi['keterangan'];
-                    break;
+									case 10:
+											$mpasi = $this->db->get_where('mpasi', ['id_mpasi' => $usia - 5])->row_array();
+											$id_mpasi = ($mpasi['id_mpasi'] ?? '');
+											$kode = ($mpasi['kode'] ?? '');
+											$menu = ($mpasi['keterangan'] ?? '');
+											break;
 
-                case 11:
-                    $mpasi = $this->db->get_where('mpasi', ['id_mpasi' => $usia - 5])->row_array();
-                    $id_mpasi = $mpasi['id_mpasi'];
-                    $kode = $mpasi['kode'];
-                    $menu = $mpasi['keterangan'];
-                    break;
+									case 11:
+											$mpasi = $this->db->get_where('mpasi', ['id_mpasi' => $usia - 5])->row_array();
+											$id_mpasi = ($mpasi['id_mpasi'] ?? '');
+											$kode = ($mpasi['kode'] ?? '');
+											$menu = ($mpasi['keterangan'] ?? '');
+											break;
 
-                default:
-                    $menu = "Pilihan menu tidak tersedia";
-            }
-            $calorieIntake = 300; // Kalori untuk usia 9-11 bulan
-        } elseif ($usia >= 12 && $usia <= 23) {
-            // Pilihan menu untuk usia 12-23 bulan
-            switch ($usia) {
-                case 12:
-                    $mpasi = $this->db->get_where('mpasi', ['id_mpasi' => $usia - 5])->row_array();
-                    $id_mpasi = $mpasi['id_mpasi'];
-                    $kode = $mpasi['kode'];
-                    $menu = $mpasi['keterangan'];
-                    break;
+									default:
+											$menu = "Pilihan menu tidak tersedia";
+							}
+							$calorieIntake = 300; // Kalori untuk usia 9-11 bulan
+					} elseif ($usia >= 12 && $usia <= 23) {
+							// Pilihan menu untuk usia 12-23 bulan
+							switch ($usia) {
+									case 12:
+											$mpasi = $this->db->get_where('mpasi', ['id_mpasi' => $usia - 5])->row_array();
+											$id_mpasi = ($mpasi['id_mpasi'] ?? '');
+											$kode = ($mpasi['kode'] ?? '');
+											$menu = ($mpasi['keterangan'] ?? '');
+											break;
 
-                case 13:
-                    $mpasi = $this->db->get_where('mpasi', ['id_mpasi' => $usia - 5])->row_array();
-                    $id_mpasi = $mpasi['id_mpasi'];
-                    $kode = $mpasi['kode'];
-                    $menu = $mpasi['keterangan'];
-                    break;
+									case 13:
+											$mpasi = $this->db->get_where('mpasi', ['id_mpasi' => $usia - 5])->row_array();
+											$id_mpasi = ($mpasi['id_mpasi'] ?? '');
+											$kode = ($mpasi['kode'] ?? '');
+											$menu = ($mpasi['keterangan'] ?? '');
+											break;
 
-                case 14:
-                    $mpasi = $this->db->get_where('mpasi', ['id_mpasi' => $usia - 5])->row_array();
-                    $id_mpasi = $mpasi['id_mpasi'];
-                    $kode = $mpasi['kode'];
-                    $menu = $mpasi['keterangan'];
-                    break;
+									case 14:
+											$mpasi = $this->db->get_where('mpasi', ['id_mpasi' => $usia - 5])->row_array();
+											$id_mpasi = ($mpasi['id_mpasi'] ?? '');
+											$kode = ($mpasi['kode'] ?? '');
+											$menu = ($mpasi['keterangan'] ?? '');
+											break;
 
-                case 15:
-                    $mpasi = $this->db->get_where('mpasi', ['id_mpasi' => $usia - 5])->row_array();
-                    $id_mpasi = $mpasi['id_mpasi'];
-                    $kode = $mpasi['kode'];
-                    $menu = $mpasi['keterangan'];
-                    break;
+									case 15:
+											$mpasi = $this->db->get_where('mpasi', ['id_mpasi' => $usia - 5])->row_array();
+											$id_mpasi = ($mpasi['id_mpasi'] ?? '');
+											$kode = ($mpasi['kode'] ?? '');
+											$menu = ($mpasi['keterangan'] ?? '');
+											break;
 
-                case 16:
-                    $mpasi = $this->db->get_where('mpasi', ['id_mpasi' => $usia - 5])->row_array();
-                    $id_mpasi = $mpasi['id_mpasi'];
-                    $kode = $mpasi['kode'];
-                    $menu = $mpasi['keterangan'];
-                    break;
-
-
-                case 17:
-                    $mpasi = $this->db->get_where('mpasi', ['id_mpasi' => $usia - 5])->row_array();
-                    $id_mpasi = $mpasi['id_mpasi'];
-                    $kode = $mpasi['kode'];
-                    $menu = $mpasi['keterangan'];
-                    break;
+									case 16:
+											$mpasi = $this->db->get_where('mpasi', ['id_mpasi' => $usia - 5])->row_array();
+											$id_mpasi = ($mpasi['id_mpasi'] ?? '');
+											$kode = ($mpasi['kode'] ?? '');
+											$menu = ($mpasi['keterangan'] ?? '');
+											break;
 
 
-                case 18:
-                    $mpasi = $this->db->get_where('mpasi', ['id_mpasi' => $usia - 5])->row_array();
-                    $id_mpasi = $mpasi['id_mpasi'];
-                    $kode = $mpasi['kode'];
-                    $menu = $mpasi['keterangan'];
-                    break;
-
-                case 19:
-                    $mpasi = $this->db->get_where('mpasi', ['id_mpasi' => $usia - 5])->row_array();
-                    $id_mpasi = $mpasi['id_mpasi'];
-                    $kode = $mpasi['kode'];
-                    $menu = $mpasi['keterangan'];
-                    break;
-
-                case 20:
-                    $mpasi = $this->db->get_where('mpasi', ['id_mpasi' => $usia - 5])->row_array();
-                    $id_mpasi = $mpasi['id_mpasi'];
-                    $kode = $mpasi['kode'];
-                    $menu = $mpasi['keterangan'];
-                    break;
-
-                case 21:
-                    $mpasi = $this->db->get_where('mpasi', ['id_mpasi' => $usia - 5])->row_array();
-                    $id_mpasi = $mpasi['id_mpasi'];
-                    $kode = $mpasi['kode'];
-                    $menu = $mpasi['keterangan'];
-                    break;
+									case 17:
+											$mpasi = $this->db->get_where('mpasi', ['id_mpasi' => $usia - 5])->row_array();
+											$id_mpasi = ($mpasi['id_mpasi'] ?? '');
+											$kode = ($mpasi['kode'] ?? '');
+											$menu = ($mpasi['keterangan'] ?? '');
+											break;
 
 
-                case 22:
-                    $mpasi = $this->db->get_where('mpasi', ['id_mpasi' => $usia - 5])->row_array();
-                    $id_mpasi = $mpasi['id_mpasi'];
-                    $kode = $mpasi['kode'];
-                    $menu = $mpasi['keterangan'];
-                    break;
+									case 18:
+											$mpasi = $this->db->get_where('mpasi', ['id_mpasi' => $usia - 5])->row_array();
+											$id_mpasi = ($mpasi['id_mpasi'] ?? '');
+											$kode = ($mpasi['kode'] ?? '');
+											$menu = ($mpasi['keterangan'] ?? '');
+											break;
 
-                case 23:
-                    $mpasi = $this->db->get_where('mpasi', ['id_mpasi' => $usia - 5])->row_array();
-                    $id_mpasi = $mpasi['id_mpasi'];
-                    $kode = $mpasi['kode'];
-                    $menu = $mpasi['keterangan'];
-                    break;
+									case 19:
+											$mpasi = $this->db->get_where('mpasi', ['id_mpasi' => $usia - 5])->row_array();
+											$id_mpasi = ($mpasi['id_mpasi'] ?? '');
+											$kode = ($mpasi['kode'] ?? '');
+											$menu = ($mpasi['keterangan'] ?? '');
+											break;
 
-                default:
-                    $menu = "Pilihan menu tidak tersedia";
-            }
-            $calorieIntake = 500; // Kalori untuk usia 12-23 bulan
-        } else {
-            $calorieIntake = 0; // Set default atau tangani kasus lainnya
-            $menu = '';
-        }
+									case 20:
+											$mpasi = $this->db->get_where('mpasi', ['id_mpasi' => $usia - 5])->row_array();
+											$id_mpasi = ($mpasi['id_mpasi'] ?? '');
+											$kode = ($mpasi['kode'] ?? '');
+											$menu = ($mpasi['keterangan'] ?? '');
+											break;
+
+									case 21:
+											$mpasi = $this->db->get_where('mpasi', ['id_mpasi' => $usia - 5])->row_array();
+											$id_mpasi = ($mpasi['id_mpasi'] ?? '');
+											$kode = ($mpasi['kode'] ?? '');
+											$menu = ($mpasi['keterangan'] ?? '');
+											break;
+
+
+									case 22:
+											$mpasi = $this->db->get_where('mpasi', ['id_mpasi' => $usia - 5])->row_array();
+											$id_mpasi = ($mpasi['id_mpasi'] ?? '');
+											$kode = ($mpasi['kode'] ?? '');
+											$menu = ($mpasi['keterangan'] ?? '');
+											break;
+
+									case 23:
+											$mpasi = $this->db->get_where('mpasi', ['id_mpasi' => $usia - 5])->row_array();
+											$id_mpasi = ($mpasi['id_mpasi'] ?? '');
+											$kode = ($mpasi['kode'] ?? '');
+											$menu = ($mpasi['keterangan'] ?? '');
+											break;
+
+									default:
+											$menu = "Pilihan menu tidak tersedia";
+							}
+							$calorieIntake = 500; // Kalori untuk usia 12-23 bulan
+					} else {
+							$calorieIntake = 0; // Set default atau tangani kasus lainnya
+							$menu = '';
+					}
+				} catch (\Throwable $th) {
+					$calorieIntake = 0; // Set default atau tangani kasus lainnya
+					$menu = 'Pilihan menu tidak tersedia';
+				}
 
         // Memperoleh total kalori berdasarkan id_anak
         $totalCalories = $this->Mpasi_model->getTotalCaloriesByIdAnak($id_anak);
@@ -214,7 +219,7 @@ class Penimbangan_Anak extends CI_Controller
         // Menambahkan total kalori dengan kalori yang dihitung sekarang
         $jml_kalori = $totalCalories + $calorieIntake;
 
-        $this->Penimbangan_model->add(
+        $resp = $this->Penimbangan_model->add(
             array(
                 'id_mpasi' => $id_mpasi,
                 'anak_id' => $this->input->post('id_anak'),
@@ -223,7 +228,7 @@ class Penimbangan_Anak extends CI_Controller
                 'ibu_id' => $this->input->post('ibu_id'),
                 'usia' => $this->input->post('usia'),
                 'deteksi' => $deteksiValues[0],
-                'tgl'=>$currentDate,
+                'tgl'=>$currentDate->format('Y-m-d'),
                 'tb' => $this->input->post('tb'),
                 'bb' => $this->input->post('bb'),
                 'tgl_skrng' => $this->input->post('tgl_skrng'),
@@ -234,6 +239,7 @@ class Penimbangan_Anak extends CI_Controller
         $data = [
             'id_mpasi' => $id_mpasi,
             'id_anak' => $anak['id_anak'],
+						'id_penimbangan' => $resp,
             'nama_ortu' => $anak['nama_ibu'],
             'tb' => $this->input->post('tb'),
             'bb' => $this->input->post('bb'),
@@ -269,4 +275,5 @@ class Penimbangan_Anak extends CI_Controller
         $this->load->view('layanan/data_penimbangan', $data);
         $this->load->view('templates/footer-datatables');
     }
+		
 }

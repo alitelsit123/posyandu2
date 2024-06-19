@@ -42,7 +42,7 @@ class Laporan_model extends CI_Model
     function getId($where = array())
     {
 
-        $this->db->select('i.nik_anak, h.tgl_lahir, h.tgl_skrng, h.usia, h.bb, h.tb, h.deteksi, h.bb, q.imunisasi, q.vit_a, q.ket, p.id_ibu, p.nama_ibu, p.nama_suami, p.alamat, i.nama_anak')
+        $this->db->select('i.nik_anak, h.tgl_lahir, h.tgl_skrng, h.usia, h.bb, h.tb, h.deteksi, h.bb, q.imunisasi, q.vit_a, q.ket, p.id_ibu, p.nama_ibu, p.nama_suami, p.alamat, i.nama_anak,h.id_penimbangan')
             ->from('penimbangan h')
             ->join('imunisasi q', 'q.anak_id = h.anak_id')
             ->join('ibu p', 'p.id_ibu = h.ibu_id')
