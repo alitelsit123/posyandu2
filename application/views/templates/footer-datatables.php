@@ -11,14 +11,6 @@
 <!-- /footer content -->
 </div>
 
-
-
-<script>
-	$(document).ready(function() {
-		// new DataTable('.datatable')
-		$('.datatable').DataTable()
-	})
-</script>
 <!-- FastClick -->
 <script src="<?= base_url('vendors/fastclick/lib/fastclick.js') ?>"></script>
 <!-- NProgress -->
@@ -39,7 +31,12 @@
 
 <!-- Custom Theme Scripts -->
 <script src="<?= base_url('build/js/custom.min.js') ?>"></script>
-
+<script>
+	$(document).ready(function() {
+		// new DataTable('.datatable')
+		var table = $('.datatable').DataTable()
+	})
+</script>
 
 </body>
 

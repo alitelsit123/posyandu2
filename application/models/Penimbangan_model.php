@@ -52,4 +52,13 @@ class Penimbangan_model extends CI_Model
 									".($penimbanganId ? "where id_penimbangan=".$penimbanganId:'');
         return $this->db->query($query)->result_array();
     }
+		public function update($table, $data, $where) {
+			$this->db->update('penimbangan', $data, $where);
+			return $this->db->affected_rows();
+		}
+		public function delete($id) {
+			// Delete the row
+			$this->db->where('id_penimbangan', $id);
+			return $this->db->delete('penimbangan'); // Returns TRUE on success, FALSE on failure
+		}
 }

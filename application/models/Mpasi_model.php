@@ -151,4 +151,8 @@ class Mpasi_model extends CI_Model
         $this->db->where('id_anak', $id);
         $this->db->update('rekomendasi_mpasi', $data);
     }
+		public function update($table, $data, $where) {
+			$this->db->update('rekomendasi_mpasi', $data, $where);
+			return $this->db->affected_rows();
+		}
 }

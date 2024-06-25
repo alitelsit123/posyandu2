@@ -1,5 +1,10 @@
 <div class="right_col" role="main">
-
+		<?php
+		if (isset($_GET["did"])) {
+			$this->Imunisasi_model->delete($_GET["did"]);
+			redirect(base_url('Imunisasi_Anak/data_imunisasi'));
+		}
+		?>
     <div class="row">
         <div class="col-md-12 col-sm-12 ">
             <div class="x_panel">
@@ -43,20 +48,28 @@
                                                 <th scope="row">
                                                     <center><?= $i; ?></center>
                                                 </th>
-                                                <td><?= $a['nama_anak'] ?? ''; ?></td>
-                                                <td><?= $n['tgl_lahir'] ?? ''; ?></td>
-                                                <td><?= $n['jenis_kelamin'] ?? ''; ?></td>
-                                                <td><?= $b['nama_ibu'] ?? ''; ?></td>
-                                                <td><?= $n['tgl_skrng'] ?? ''; ?></td>
-                                                <td><?= $n['usia'] ?? ''; ?>&nbsp;Bulan</td>
-                                                <td><?= $n['imunisasi'] ?? ''; ?></td>
-                                                <td><?= $n['vit_a'] ?? ''; ?></td>
-                                                <td><?= $n['ket'] ?? ''; ?></td>
-                                                <td><?= $c['name'] ?? ''; ?></td>
+                                                <td><?= isset($a['nama_anak']) ? $a['nama_anak']:'' ?></td>
+                                                <td><?= isset($n['tgl_lahir']) ? $n['tgl_lahir']:'' ?></td>
+                                                <td><?= isset($n['jenis_kelamin']) ? $n['jenis_kelamin']:'' ?></td>
+                                                <td><?= isset($b['nama_ibu']) ? $b['nama_ibu']:'' ?></td>
+                                                <td><?= isset($n['tgl_skrng']) ? $n['tgl_skrng']:'' ?></td>
+                                                <td><?= isset($n['usia']) ? $n['usia']:'' ?>&nbsp;Bulan</td>
+                                                <td><?= isset($n['imunisasi']) ? $n['imunisasi']:'' ?></td>
+                                                <td><?= isset($n['vit_a']) ? $n['vit_a']:'' ?></td>
+                                                <td><?= isset($n['ket']) ? $n['ket']:'' ?></td>
+                                                <td><?= isset($c['name']) ? $c['name']:'' ?></td>
 																								<td>
-																									<?php if(($a["nama_anak"] ?? false)): ?> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal<?= $i - 1; ?>">
+																									<?php if((isset($a['nama_anak']) ? $a['nama_anak']:false)): ?> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal<?= $i - 1; ?>">
 																												Edit
 																										</button> <?php endif; ?>
+																									<?php if((isset($a['nama_anak']) ? $a['nama_anak']:false)): ?> 
+																										<form action="" method="get">
+																											<input type="hidden" name="did" id="" value="<?= $n["id_imunisasi"] ?>">
+																											<button type="submit" class="btn btn-danger" onclick="return confirm('Yakin hapus ?');">
+																												Hapus
+																											</button>
+																										</form> 
+																									<?php endif; ?>
 																								</td>
                                             </tr>
                                             <?php $i++; ?>
@@ -86,11 +99,11 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="<?= site_url('imunisasi_anak/update_method') ?>" method="post">
+                    <form action="<?= site_url('Imunisasi_Anak/update_method') ?>" method="post">
                         <input type="hidden" name="id_imunisasi" value="<?= $n['id_imunisasi'] ?>">
 												<div class="form-group">
                             <label for="nama_anak">Usia</label>
-                            <input type="text" class="form-control" id="usia" name="usia" value="<?= $n['usia'] ?? ''; ?>">
+                            <input type="text" class="form-control" id="usia" name="usia" value="<?= $n['usia'] ? $n['usia']:''; ?>">
                         </div>
 												<div class="form-group">
                             <label for="nama_anak">imunisasi</label>
@@ -154,7 +167,7 @@
                         </div>
 												<div class="form-group">
                             <label for="nama_anak">ket</label>
-                            <input type="text" class="form-control" id="ket" name="ket" value="<?= $n['ket'] ?? ''; ?>">
+                            <input type="text" class="form-control" id="ket" name="ket" value="<?= $n['ket'] ?$n['ket']: ''; ?>">
                         </div>
                         <!-- Add other form fields as needed -->
                         <button type="submit" class="btn btn-primary">Save changes</button>

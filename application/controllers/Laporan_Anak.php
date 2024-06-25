@@ -278,7 +278,7 @@ class Laporan_Anak extends CI_Controller
             $html = $html . "<th>PB/U</th>";
             $html = $html . "<th>BB/PB</th>";
 						$html = $html . "<th>Kalori MPSI</th>";
-						$html = $html . "<th>Keterangan MPSI</th>";
+						$html = $html . "<th>Rekomendasi MPSI</th>";
             $html = $html . "</tr>";
             $html = $html . "</thead>";
             $html = $html . "<tbody>";

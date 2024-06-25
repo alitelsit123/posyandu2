@@ -25,4 +25,9 @@ class Imunisasi_model extends CI_Model
 			$this->db->update($table, $data, $where);
 			return $this->db->affected_rows();
 		}
+		public function delete($id) {
+			// Delete the row
+			$this->db->where('id_imunisasi', $id);
+			return $this->db->delete('imunisasi'); // Returns TRUE on success, FALSE on failure
+		}
 }

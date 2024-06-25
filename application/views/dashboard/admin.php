@@ -136,6 +136,19 @@
 
     return $resItem;
 	}, array_column($anakIds,'id_anak'));
+
+	$x = [];
+	foreach ($anakMapperBBU as $row) {
+		foreach ($months as $month) {
+			if (isset($x[0][$month - 1])) {
+				$x[0][$month - 1] = $x[0][$month - 1] + $row[$month - 1];
+			} else {
+				$x[0][$month - 1] = $row[$month - 1];
+			}
+		}
+	}
+	$anakMapperBBU = $x;
+
 	$anakMapperPBU = array_map(function($item) use ($months) {
 		$penimbangan = $this->Penimbangan_model->getDataAnakIbuByDateAnd( (isset($_GET['year']) ? $_GET['year']:null),$item );
 		$resItem = array_fill(0, 12, 0); // Initialize with 12 elements set to 0
@@ -167,6 +180,19 @@
 
     return $resItem;
 	}, array_column($anakIds,'id_anak'));
+	$x = [];
+	foreach ($anakMapperPBU as $row) {
+		foreach ($months as $month) {
+			if (isset($x[0][$month - 1])) {
+				$x[0][$month - 1] = $x[0][$month - 1] + $row[$month - 1];
+			} else {
+				$x[0][$month - 1] = $row[$month - 1];
+			}
+		}
+	}
+	$anakMapperPBU = $x;
+
+
 	$anakMapperBBPB = array_map(function($item) use ($months) {
 		$penimbangan = $this->Penimbangan_model->getDataAnakIbuByDateAnd( (isset($_GET['year']) ? $_GET['year']:null),$item );
 		$resItem = array_fill(0, 12, 0); // Initialize with 12 elements set to 0
@@ -198,6 +224,17 @@
 
     return $resItem;
 	}, array_column($anakIds,'id_anak'));
+	$x = [];
+	foreach ($anakMapperBBPB as $row) {
+		foreach ($months as $month) {
+			if (isset($x[0][$month - 1])) {
+				$x[0][$month - 1] = $x[0][$month - 1] + $row[$month - 1];
+			} else {
+				$x[0][$month - 1] = $row[$month - 1];
+			}
+		}
+	}
+	$anakMapperBBPB = $x;
 	$anakMapperBB = array_map(function($item) use ($months) {
 		$penimbangan = $this->Penimbangan_model->getDataAnakIbuByDateAnd( (isset($_GET['year']) ? $_GET['year']:null),$item );
 		$resItem = array_fill(0, 12, 0); // Initialize with 12 elements set to 0
@@ -217,6 +254,18 @@
 
     return $resItem;
 	}, array_column($anakIds,'id_anak'));
+	$x = [];
+	foreach ($anakMapperBB as $row) {
+		foreach ($months as $month) {
+			if (isset($x[0][$month - 1])) {
+				$x[0][$month - 1] = $x[0][$month - 1] + $row[$month - 1];
+			} else {
+				$x[0][$month - 1] = $row[$month - 1];
+			}
+		}
+	}
+	$anakMapperBB = $x;
+
 	$anakMapperTB = array_map(function($item) use ($months) {
 		$penimbangan = $this->Penimbangan_model->getDataAnakIbuByDateAnd( (isset($_GET['year']) ? $_GET['year']:null),$item );
 		$resItem = array_fill(0, 12, 0); // Initialize with 12 elements set to 0
@@ -237,6 +286,17 @@
 
     return $resItem;
 	}, array_column($anakIds,'id_anak'));
+	$x = [];
+	foreach ($anakMapperTB as $row) {
+		foreach ($months as $month) {
+			if (isset($x[0][$month - 1])) {
+				$x[0][$month - 1] = $x[0][$month - 1] + $row[$month - 1];
+			} else {
+				$x[0][$month - 1] = $row[$month - 1];
+			}
+		}
+	}
+	$anakMapperTB = $x;
 	
 ?>
 <script>
